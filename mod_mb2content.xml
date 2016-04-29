@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.0" client="site" method="upgrade">
+<name>mod_mb2content</name>
+<author>Mariusz Boloz</author>
+<creationDate>April 2013</creationDate>
+<copyright>Copyright (C) 2013 - 2016 Mariusz Boloz (http://mb2extensions.com) All rights reserved.</copyright>
+<license>GNU/GPL (http://www.gnu.org/copyleft/gpl.html)</license>
+<authorEmail>mariuszboloz@gmail.com</authorEmail>
+<authorUrl>http://mb2extensions.com</authorUrl>
+<version>1.5.0</version>
+<description>MOD_MB2CONTENT_DESCRIPTION</description>
+<files>
+	<filename module="mod_mb2content">mod_mb2content.php</filename>
+	<filename>index.html</filename>
+	<filename>helper.php</filename>
+	<folder>helpers</folder>
+	<folder>libs</folder>
+	<folder>tmpl</folder>
+</files>
+
+<media folder="media" destination="mb2content">
+	<filename>index.html</filename>
+	<folder>css</folder>
+	<folder>images</folder>
+	<folder>js</folder>
+</media>
+
+<languages folder="language">
+	<language tag="en-GB">en-GB.mod_mb2content.ini</language>
+	<language tag="en-GB">en-GB.mod_mb2content.sys.ini</language>
+</languages>
+
+
+<help key="JHELP_EXTENSIONS_MODULE_MANAGER_MOD_MB2CONTENT" />
+<config>
+<fields name="params">
+
+		
+	<fieldset name="basic" addfieldpath="/modules/mod_mb2content/libs/fields/" label="MOD_MB2CONTENT_GENERAL_SECTION">	
+	
+	
+	
+	
+	
+	<field name="source" type="list" default="" label="MOD_MB2CONTENT_SOURCE" description="" >
+		<option value="">MOD_MB2CONTENT_JOOMLA_CATEGORIES</option>
+		<option	value="k2">MOD_MB2CONTENT_K2_CATEGORIES</option>
+	</field>
+	
+	
+	
+	
+	<field type="spacer" hr="true" />
+	
+	<field name="catid"	type="category"	extension="com_content"	multiple="true"	size="10" default="" label="MOD_MB2CONTENT_CATEGORY" description="" />
+	
+	
+	
+	<field name="show_featured" type="list" default="" label="MOD_MB2CONTENT_COUNT_FEATURED" description="">
+		<option value="">JSHOW</option>
+		<option	value="0">JHIDE</option>
+		<option value="1">MOD_MB2CONTENT_ONLY_SHOW_FEATURED</option>
+	</field>
+	
+   	<field name="ordering" type="list" default="published" label="MOD_MB2CONTENT_ORDERING" description="">
+		<option value="c_dsc">MOD_MB2CONTENT_RECENT_ADDED</option>
+		<option value="m_dsc">MOD_MB2CONTENT_RECENT_MODIFIED</option>
+		<option value="p_dsc">MOD_MB2CONTENT_RECENT_PUBLISHED</option>
+		<option value="mc_dsc">MOD_MB2CONTENT_RECENT_TOUCHED</option>
+		<option value="most_popular">MOD_MB2CONTENT_MOST_POPULAR</option>		
+	</field>
+
+	<field name="user_id" type="list" default="0" label="MOD_MB2CONTENT_USER" description="">
+		<option value="0">MOD_MB2CONTENT_VALUE_ANYONE</option>
+		<option value="by_me">MOD_MB2CONTENT_VALUE_ADDED_BY_ME</option>
+		<option value="not_me">MOD_MB2CONTENT_NOTADDED_BY_ME</option>
+	</field>
+	
+	
+	
+	<field type="spacer" hr="true" />
+	
+	<field name="category_id" type="categoriesmultiple" size="10" default="" label="MOD_MB2CONTENT_K2_CATEGORY" description="" />
+	<field name="itemsOrdering" type="list" default="" label="MOD_MB2CONTENT_K2_ITEM_ORDERING" description="">
+		<option value="">MOD_MB2CONTENT_K2_DEFAULT</option>
+		<option value="date">MOD_MB2CONTENT_K2_OLDEST_FIRST</option>
+  		<option value="rdate">MOD_MB2CONTENT_K2_MOST_RECENT_FIRST</option>
+		<option value="publishUp">MOD_MB2CONTENT_K2_RECENTLY_PUBLISHED</option>
+		<option value="alpha">MOD_MB2CONTENT_K2_TITLE_ALPHABETICAL</option>
+		<option value="ralpha">MOD_MB2CONTENT_K2_TITLE_REVERSEALPHABETICAL</option>
+ 		<option value="order">MOD_MB2CONTENT_K2_ORDERING</option>
+   		<option value="rorder">MOD_MB2CONTENT_K2_ORDERING_REVERSE</option>
+    	<option value="hits">MOD_MB2CONTENT_K2_MOST_POPULAR</option>
+   		<option value="best">MOD_MB2CONTENT_K2_HIGHEST_RATED</option>
+   		<option value="comments">MOD_MB2CONTENT_K2_MOST_COMMENTED</option>
+		<option value="modified">MOD_MB2CONTENT_K2_LATEST_MODIFIED</option>
+		<option value="rand">MOD_MB2CONTENT_K2_RANDOM_ORDERING</option>
+ 	</field>
+    <field name="FeaturedItems" type="list" default="1" label="MOD_MB2CONTENT_K2_FEATURED_ITEMS" description="">
+		<option value="0">JHIDE</option>
+		<option value="1">JSHOW</option>
+		<option value="2">MOD_MB2CONTENT_ONLY_SHOW_FEATURED</option>
+	</field>
+	<field name="popularityRange" type="list" default="" label="MOD_MB2CONTENT_K2_TIME_RANGE_IF_ORDERING_IS_SET_TO_MOST_POPULAR_OR_MOST_COMMENTED" description="">
+       	<option value="">MOD_MB2CONTENT_K2_ALL_TIME</option>
+    	<option value="1">MOD_MB2CONTENT_K2_1_DAY</option>
+ 		<option value="3">MOD_MB2CONTENT_K2_3_DAYS</option>
+  		<option value="7">MOD_MB2CONTENT_K2_1_WEEK</option>
+   		<option value="15">MOD_MB2CONTENT_K2_2_WEEKS</option>
+    	<option value="30">MOD_MB2CONTENT_K2_1_MONTH</option>
+		<option value="90">MOD_MB2CONTENT_K2_3_MONTHS</option>
+		<option value="180">MOD_MB2CONTENT_K2_6_MONTHS</option>
+	</field>
+	<field name="videosOnly" type="radio" class="btn-group btn-group-yesno" default="0" label="MOD_MB2CONTENT_K2_FETCH_ONLY_ITEMS_WITH_VIDEOS" description="">
+       	<option value="1">JYES</option>
+		<option value="0">JNO</option>
+	</field>
+	
+	</fieldset>
+	
+	
+	
+	<fieldset name="layout_options" label="MOD_MB2CONTENT_LAYOUT_SECTION" description="">
+		
+		
+		<field name="item_layout" type="mb2radioimg" default="media-above" label="MOD_MB2CONTENT_LAYOUT" description="">
+			<option value="only-image">image.jpg</option>
+			<option value="only-desc">description.jpg</option>
+			<option value="mb2-content-media-left">image_desc.jpg</option>
+			<option value="mb2-content-media-right">desc_image.jpg</option>
+			<option value="media-above">image_desc_below.jpg</option>
+			<option value="desc-hover">image_desc_hover.jpg</option>		
+		</field>					
+		<field name="cols" type="list" default="4" label="MOD_MB2CONTENT_COLUMNS" description="">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>		
+		</field>
+		<field name="count" type="number" default="5" min="1" label="MOD_MB2CONTENT_COUNT" description="" />
+		<field name="margin_lr" type="number" default="20" min="0" label="MOD_MB2CONTENT_ITEM_MARGIN_LR" description="" />
+		<field name="margin_b" type="number" default="30" min="0" label="MOD_MB2CONTENT_ITEM_MARGIN_BOTTOM" description="" />
+		<field name="responsive" type="radio" default="1" class="btn-group btn-group-yesno" label="MOD_MB2CONTENT_RESPONSIVE" description="" >
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field type="spacer" hr="true" />
+		
+		<field name="hover_bg_margin" type="radio" default="1" class="btn-group btn-group-yesno" label="MOD_MB2CONTENT_HOVER_BG_MARGIN" description="MOD_MB2CONTENT_HOVER_BG_MARGIN_DESC" >
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<!--<field name="hover_effect" type="list" default="2" label="MOD_MB2CONTENT_THUMBNAIL_HOVER_EFFECT" description="" >
+			<option value="0">JNONE</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+		</field>-->	
+		<field name="media_width" type="number" default="50" min="10" label="MOD_MB2CONTENT_MEDIA_WIDTH" description="MOD_MB2CONTENT_MEDIA_WIDTH_DESC" />	
+		<field name="media_desc_margin" type="number" default="30" min="0" label="MOD_MB2CONTENT_MEDIA_DETAILS_MARGIN" description="MOD_MB2CONTENT_MEDIA_DETAILS_MARGIN_DESC" />	
+		
+		<field type="spacer" hr="true" />
+							
+		<field name="carousel_on" type="radio" default="0" class="btn-group btn-group-yesno" label="MOD_MB2CONTENT_CAROUSEL_ON" description="" >
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+	
+	</fieldset>
+	
+		
+	
+	
+	
+	<fieldset name="item_settings" label="MOD_MB2CONTENT_ITEM_SETTINGS_SECTION" description="">
+		
+		<field name="title" type="radio" default="1" class="btn-group btn-group-yesno" label="MOD_MB2CONTENT_TITLE" description="" >
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="title_link" type="radio" default="1" class="btn-group btn-group-yesno" label="MOD_MB2CONTENT_TITLE_LINK" description="" >
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="title_limit" type="number" default="999" max="999" min="0" label="MOD_MB2CONTENT_TITLE_LIMIT" description="" />		
+		<field name="title_heading" type="list" default="h4" label="MOD_MB2CONTENT_TITLE_TAG" description="" >
+			<option value="h1">h1</option>
+			<option value="h2">h2</option>
+			<option value="h3">h3</option>
+			<option value="h4">h4</option>
+			<option value="h5">h5</option>
+			<option value="h6">h6</option>
+			<option value="p">p</option>
+		</field>
+			
+			
+		
+			
+		<field type="spacer" hr="true" />		
+		
+		<field name="introtext" type="radio" default="1" class="btn-group btn-group-yesno" label="MOD_MB2CONTENT_INTROTEXT" description="" >
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="introtext_limit" type="number" default="999" max="999" min="0" label="MOD_MB2CONTENT_TEXT_LIMIT" description="MOD_MB2CONTENT_TEXT_LIMIT_DESC" />
+		
+		<field type="spacer" hr="true" />
+		
+		<field name="meta_author" type="radio" default="1" class="btn-group btn-group-yesno" label="MOD_MB2CONTENT_META_AUTHOR" description="" >
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="meta_author_link" type="radio" default="0" class="btn-group btn-group-yesno" label="MOD_MB2CONTENT_META_AUTHOR_LINK" description="" >
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="meta_author_text" type="text" default="" label="MOD_MB2CONTENT_META_AUTHOR_TEXT" description="" />
+		
+		<field type="spacer" hr="true" />
+		
+		<field name="meta_category" type="radio" default="1" class="btn-group btn-group-yesno" label="MOD_MB2CONTENT_META_CATEGORY" description="" >
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="meta_category_link" type="radio" default="0" class="btn-group btn-group-yesno" label="MOD_MB2CONTENT_META_CATEGORY_LINK" description="" >
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>		
+		<field name="meta_category_text" type="text" default="" label="MOD_MB2CONTENT_META_CATEGORY_TEXT" description="" />
+				
+		<field type="spacer" hr="true" />		
+		
+		<field name="meta_date" type="radio" default="1" class="btn-group btn-group-yesno" label="MOD_MB2CONTENT_META_DATE" description="" >
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>		
+		<field name="meta_date_pos" type="list" default="1" label="MOD_MB2CONTENT_META_DATE_POS" description="" >
+			<option value="1">MOD_MB2CONTENT_OPT_ABOVE</option>
+			<option value="2">MOD_MB2CONTENT_OPT_BELOW</option>
+		</field>		
+		<field name="meta_date_text" type="text" default="" label="MOD_MB2CONTENT_META_DATE_TEXT" description="" />	
+		<field name="meta_date_format" type="text" default="d M, Y" label="MOD_MB2CONTENT_META_DATE_FORMAT" description="MOD_MB2CONTENT_META_DATE_FORMAT_DESC" />	
+		
+		<field type="spacer" hr="true" />
+		
+		<field name="readmore" type="radio" default="1" class="btn-group btn-group-yesno" label="MOD_MB2CONTENT_READMORE" description="" >
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="readmore_text" type="text" default="Read More" label="MOD_MB2CONTENT_READMORE_TEXT" description="" />		
+		<field name="readmore_btn_cls" type="text" default="" label="MOD_MB2CONTENT_READMORE_BUTTON_CLS" description="" />
+			
+	</fieldset>	
+	
+	
+	<fieldset name="thumbnail" label="MOD_MB2CONTENT_THUMBNAIL_SECTION" description="">
+	
+		<field name="resize" type="radio" default="1" class="btn-group btn-group-yesno" label="MOD_MB2CONTENT_THUMBNAIL_RESIZE" description="MOD_MB2CONTENT_THUMBNAIL_RESIZE_DESC" >
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="thumb_width" type="number" default="480" min="50" label="MOD_MB2CONTENT_THUMB_WIDTH" description="" />
+		<field name="thumb_height" type="number" default="380" min="50" label="MOD_MB2CONTENT_THUMB_HEIGHT" description="" />		
+		<field name="itemImgSize" type="list" default="Medium" label="MOD_MB2CONTENT_K2_THUMB_SIZE" description="">
+   			<option value="XSmall">MOD_MB2CONTENT_XSMALL</option>
+     		<option value="Small">MOD_MB2CONTENT_SMALL</option>
+ 			<option value="Medium">MOD_MB2CONTENT_MEDIUM</option>
+    		<option value="Large">MOD_MB2CONTENT_LARGE</option>
+        	<option value="XLarge">MOD_MB2CONTENT_XLARGE</option>
+   		</field>	
+		<field name="thumb_link" type="list" label="MOD_MB2CONTENT_THUMBNAIL_LINK" description="" default="0" filter="raw">
+			<option value="0">JNONE</option>
+			<option value="1">MOD_MB2CONTENT_VALUE_LINK_TO_BIG_IMAGE</option>
+			<option value="2">MOD_MB2CONTENT_VALUE_LINK_TO_POST</option>
+			<option value="3">MOD_MB2CONTENT_VALUE_LINK_TO_IMAGE_AND_POST</option>
+		</field>
+		<field name="image_links" type="radio" class="btn-group btn-group-yesno" default="1" label="MOD_MB2CONTENT_IMAGE_LINKS_LABEL" description="MOD_MB2CONTENT_IMAGE_LINKS_DESC" >
+			<option value="1">JSHOW</option>
+			<option value="0">JHIDE</option>			
+		</field>
+		<field name="lightbox_image" type="radio" default="1" class="btn-group btn-group-yesno" label="MOD_MB2CONTENT_LIGHTBOX_IMAGE" description="" >
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+	
+	</fieldset>
+	
+	
+	<fieldset name="style" label="MOD_MB2CONTENT_STYLE_SECTION" description="">	
+		
+		<field name="active_color" type="mb2color" default="" label="MOD_MB2CONTENT_ACTIVE_COLOR" description="MOD_MB2CONTENT_ACTIVE_COLOR_DESC" />
+		<field name="img_hover_bg" type="mb2color" default="" label="MOD_MB2CONTENT_IMG_HOVER_BG_COLOR" description="" />
+		
+		<field type="spacer" hr="true" />
+						
+		<field name="color" type="mb2color" default="" label="MOD_MB2CONTENT_COLOR" description="" />		
+		<field name="title_color" type="mb2color" default="" label="MOD_MB2CONTENT_TITLE_COLOR" description="" />		
+		<field name="meta_color" type="mb2color" default="" label="MOD_MB2CONTENT_META_COLOR" description="MOD_MB2CONTENT_META_COLOR_DESC" />		
+		<field name="link_color" type="mb2color" default="" label="MOD_MB2CONTENT_LINK_COLOR" description="" />
+		<field name="link_hover_color" type="mb2color" default="" label="MOD_MB2CONTENT_LINK_HOVER_COLOR" description="" />
+		
+		
+		<field type="spacer" hr="true" />
+		
+		<field name="custom_css" type="textarea" default="" cols="30" rows="10" label="MOD_MB2CONTENT_CUSTOM_STYLE" description="" filter="raw" class="mb2-textarea" />
+	
+	</fieldset>
+	
+	
+	
+	<fieldset name="carousel_options" label="MOD_MB2CONTENT_CAROUSEL_OPTIONS_SECTION" description="">
+		
+		
+		
+		<field name="carousel_script" type="radio" default="1" class="btn-group btn-group-yesno" label="MOD_MB2CONTENT_CAROUSEL_SCRIPT" description="MOD_MB2CONTENT_CAROUSEL_SCRIPT_DESC" >
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		
+		<field name="carousel_style" type="radio" default="1" class="btn-group btn-group-yesno" label="MOD_MB2CONTENT_CAROUSEL_STYLE" description="MOD_MB2CONTENT_CAROUSEL_STYLE_DESC" >
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		
+		
+		
+			
+		<field name="carousel_auto" type="radio" default="1" class="btn-group btn-group-yesno" label="MOD_MB2CONTENT_CAROUSEL_AUTO" description="" >
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="carousel_loop" type="radio" default="0" class="btn-group btn-group-yesno" label="MOD_MB2CONTENT_CAROUSEL_LOOP" description="" >
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<!--<field name="carousel_anim_type" type="list" default="0" class="btn-group btn-group-yesno" label="MOD_MB2CONTENT_CAROUSEL_ANIMAION_TYPE" description="" >
+			<option value="0">MOD_MB2CONTENT_SCROLL</option>
+			<option value="1">MOD_MB2CONTENT_FADE</option>
+		</field>-->
+		<field name="carousel_scroll" type="number" default="1" min="1" label="MOD_MB2CONTENT_CAROUSEL_SCROLL" description="" />
+		<field name="carousel_nim_speed" type="number" default="400" min="100" label="MOD_MB2CONTENT_CAROUSEL_ANIM_SPEED" description="" />
+		<field name="carousel_pause_time" type="number" default="2000" min="100" label="MOD_MB2CONTENT_CAROUSEL_PAUSE_TIME" description="" />	
+		<field name="carousel_direct_nav" type="radio" default="1" class="btn-group btn-group-yesno" label="MOD_MB2CONTENT_DIRECT_NAV" description="MOD_MB2CONTENT_DIRECT_NAV_DESC" >
+			<option value="1">JSHOW</option>
+			<option value="0">JHIDE</option>
+		</field>
+		<field name="carousel_control_nav" type="radio" default="1" class="btn-group btn-group-yesno" label="MOD_MB2CONTENT_CONTROL_NAV" description="MOD_MB2CONTENT_CONTROL_NAV_DESC" >
+			<option value="1">JSHOW</option>
+			<option value="0">JHIDE</option>
+		</field>
+		<!--<field name="carousel_touch" type="radio" default="1" class="btn-group btn-group-yesno" label="MOD_MB2CONTENT_SWIPE" description="" >
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>-->
+		
+	</fieldset>
+	
+	
+	<fieldset name="lightbox_options" label="MOD_MB2CONTENT_LIGHTBOX_OPTION_SECTION" description="">
+	
+		<field name="lightbox_script" type="radio" default="1" class="btn-group btn-group-yesno" label="MOD_MB2CONTENT_LIGHTBOX_SCRIPT" description="MOD_MB2CONTENT_LIGHTBOX_SCRIPT_DESC" >
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		<field name="lightbox_styles" type="radio" default="1" class="btn-group btn-group-yesno" label="MOD_MB2CONTENT_LIGHTBOX_STYLE" description="MOD_MB2CONTENT_LIGHTBOX_STYLE_DESC" >
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		
+		
+		<field name="lightbox_gallery" type="radio" default="0" class="btn-group btn-group-yesno" label="MOD_MB2CONTENT_LIGHTBOX_GALLERY" description="" >
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+		
+		
+	
+	
+	</fieldset>
+	
+	
+	
+	
+
+	<fieldset name="advanced">
+
+			
+		
+		
+		<field name="moduleclass_sfx" type="textarea" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+
+		<field name="cache" type="list" default="1" label="COM_MODULES_FIELD_CACHING_LABEL" description="COM_MODULES_FIELD_CACHING_DESC">
+			<option value="1">JGLOBAL_USE_GLOBAL</option>
+			<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+		</field>
+
+		<field name="cache_time" type="text" default="900" label="COM_MODULES_FIELD_CACHE_TIME_LABEL" description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+		<field name="cachemode" type="hidden" default="static">
+			<option value="static"></option>
+		</field>
+	
+	
+	
+	
+	
+	
+	</fieldset>
+		</fields>
+	</config>
+</extension>
