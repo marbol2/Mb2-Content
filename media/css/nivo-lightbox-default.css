@@ -1,0 +1,107 @@
+
+.nivo-lightbox-theme-default.nivo-lightbox-overlay { 
+	background: #000;
+	background: rgba(0,0,0,0.75); 
+}
+
+.nivo-lightbox-theme-default .nivo-lightbox-content.nivo-lightbox-loading { 
+	background-image: url(../images/loading_lightbox.gif); 
+	background-repeat: no-repeat; 
+	background-position: 50% 50%; 
+	background-size: 54px 54px; 
+}
+
+.nivo-lightbox-theme-default .nivo-lightbox-nav {
+	top:50%;
+	height: 60px;
+	width: 60px;
+	line-height: 60px;
+	text-align: center;
+	font-size: 24px;
+	margin-top: -30px;
+	opacity: .7;
+	color: #fff;
+	text-decoration: none;
+	backface-visibility: hidden;
+	overflow: hidden;
+}
+
+.nivo-lightbox-theme-default .nivo-lightbox-nav:hover { 
+	opacity: 1;
+}
+
+.nivo-lightbox-theme-default .nivo-lightbox-prev { 
+	left: 2%;
+}
+
+.nivo-lightbox-theme-default .nivo-lightbox-next {
+	right: 2%;
+}
+
+.nivo-lightbox-theme-default .nivo-lightbox-close {
+	display: block;
+	color: #fff;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 24px;
+	text-align: center;
+	text-decoration: none;
+	padding: 0;
+	opacity: .7;
+	backface-visibility: hidden;
+	overflow: hidden;
+}
+
+
+.nivo-lightbox-theme-default .nivo-lightbox-close:before,
+.nivo-lightbox-theme-default .nivo-lightbox-next:before,
+.nivo-lightbox-theme-default .nivo-lightbox-prev:before {
+	font-family:mb2c_font;
+	font-style:normal;
+	font-weight:400;
+	speak:none;
+	display:inline-block;
+	text-decoration:inherit;
+	width:1em;
+	margin-right:.2em;
+	text-align:center;
+	font-variant:normal;
+	text-transform:none;
+	line-height:1em;
+	margin-left:.2em
+}
+
+.nivo-lightbox-theme-default .nivo-lightbox-close:before {
+	content: '\e803';	
+}
+
+.nivo-lightbox-theme-default .nivo-lightbox-next:before {
+	content: '\e800';	
+}
+
+.nivo-lightbox-theme-default .nivo-lightbox-prev:before {
+	content: '\e801';	
+}
+
+.nivo-lightbox-theme-default .nivo-lightbox-close:hover { 
+	opacity: 1; 
+	text-decoration: none;
+}
+
+.nivo-lightbox-theme-default .nivo-lightbox-title-wrap { 
+	bottom: -8%; 
+}
+
+.nivo-lightbox-theme-default .nivo-lightbox-title {
+	font-size: 90%;
+	color: #fff;
+	padding: 7px 15px;
+}
+
+.nivo-lightbox-theme-default .nivo-lightbox-image img {}
+.nivo-lightbox-theme-default .nivo-lightbox-ajax,
+.nivo-lightbox-theme-default .nivo-lightbox-inline {
+	background: #fff;
+	padding: 40px;
+}

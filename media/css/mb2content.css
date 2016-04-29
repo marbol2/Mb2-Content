@@ -1,0 +1,495 @@
+/**
+ * @package		Mb2 Content
+ * @version		1.5.0
+ * @author		Mariusz Boloz (http://mb2extensions.com)
+ * @copyright	Copyright (C) 2013 - 2016 Mariusz Boloz (http://mb2extensions.com). All rights reserved
+ * @license		GNU/GPL (http://www.gnu.org/copyleft/gpl.html)
+**/
+
+
+/* Icon font */
+@font-face{font-family:mb2c_font;src:url(font/mb2c_font.eot?3517552);src:url(font/mb2c_font.eot?3517552#iefix) format('embedded-opentype'),url(font/mb2c_font.woff?3517552) format('woff'),url(font/mb2c_font.ttf?3517552) format('truetype'),url(font/mb2c_font.svg?3517552#mb2c_font) format('svg');font-weight:400;font-style:normal}[class*=" mb2c_icon-"]:before,[class^=mb2c_icon-]:before{font-family:mb2c_font;font-style:normal;font-weight:400;speak:none;display:inline-block;text-decoration:inherit;width:1em;margin-right:.2em;text-align:center;font-variant:normal;text-transform:none;line-height:1em;margin-left:.2em}.mb2c_icon-right-open-big:before{content:'\e800'}.mb2c_icon-left-open-big:before{content:'\e801'}.mb2c_icon-resize-full:before{content:'\e802'}.mb2c_icon-cancel:before{content:'\e803'}.mb2c_icon-link:before{content:'\e804'}.mb2c_icon-plus:before{content:'\e805'}
+
+
+
+
+/*--------------------------------------------------------------*/
+/*	General styles
+/*--------------------------------------------------------------*/
+
+.mb2-content *,
+.mb2-content *:before,
+.mb2-content *:after {
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+    box-sizing: content-box;	
+}
+
+.mb2-content {
+	position:relative;
+}
+
+
+
+
+
+/* Item list */
+
+.mb2-content-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: block;	
+}
+
+/*.mb2-content-list.is-carousel {
+	display: none;	
+}*/
+
+
+
+/* Item list */
+
+.mb2-content-item {
+	display:block;
+	float:left;
+	margin-left:0;
+	margin-right:0;
+	line-height: 1.7em;
+}
+
+
+
+/* Item blocks (thumbnail and description) */
+
+.mb2-content-item-media,
+.mb2-content-item-deatils {
+	float:left;
+	max-width: 100%;
+}
+
+
+
+
+
+/* Left description and right media style */
+
+.mb2-content-item.mb2-content-media-right .mb2-content-item-media {
+	float:right;
+}
+
+
+
+/* Media above layout */
+
+.media-above .mb2-content-item-media {
+	margin-bottom:20px;	
+}
+
+
+
+/* Media-left layout */
+
+.mb2-content-media-left .mb2-content-item-deatils-inner {
+	padding-left:30px;	
+}
+
+
+
+/* Media-right layout */
+.mb2-content-media-right .mb2-content-item-deatils-inner {
+	padding-right:30px;	
+}
+
+
+
+
+
+
+/*--------------------------------------------------------------*/
+/*	Item elements
+/*--------------------------------------------------------------*/
+
+/* Article list */
+
+.mb2-content-list {
+	margin-bottom:0;
+}
+
+
+
+/* Title */
+
+.mb2-content-item-title	 {
+	margin: 0;
+}
+
+
+
+/* Description */
+
+.mb2-content-item-desc	{
+	margin-top: 15px;
+}
+
+
+
+/* Readmore button */
+
+.mb2-content-item-readmore	{
+	margin-top:15px;
+}
+
+
+
+/* Item details */
+
+.mb2-content-item-meta	{
+	margin-top: 5px;
+}
+
+.mb2-content-item-meta > span {
+	display:inline-block;
+	margin:0 5px 0 0;
+}
+
+.mb2-content-item-meta {
+	font-size:87%;
+	color:#999;	
+}
+
+.mb2-content-item-meta-date.above {
+	margin-bottom: 10px;
+	display: inline-block;
+	background-color: #329bd1;
+	color: #fff;
+	padding: 3px 5px;	
+	line-height: normal;
+	font-size: 77%;
+} 
+
+
+
+
+
+
+
+
+/*--------------------------------------------------------------*/
+/*	Thumbnails
+/*--------------------------------------------------------------*/
+
+.mb2-content img {
+	max-width:100%;
+	height: auto;	
+}
+
+
+
+/* Thumbnail mask div */
+
+.mb2-content .mb2-content-img {
+	height:auto;
+	position:relative;
+	overflow:hidden;
+	float:left;
+}
+
+
+/* Hover container */
+
+.mb2-content-hover-container {
+	position: relative;	
+}
+
+.mb2-content-hover-bg {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;	
+	padding: 10px;
+	background-color: rgba(0,0,0,.7);
+	-webkit-transition: opacity .15s ease-in-out;
+  	-moz-transition: opacity .15s ease-in-out;
+  	-o-transition: opacity .15s ease-in-out;
+  	transition: opacity .15s ease-in-out;	
+}
+
+.mb2-content-hover-bg.margin {
+	margin: 10px;	
+}
+
+.mb2-content-hover-container:hover .mb2-content-hover-bg {
+	opacity: 1;	
+}
+
+.mb2-content-hover-content {
+	display: table;
+	height: 100%;
+	width: 100%;
+	text-align: center;	
+}
+
+.mb2-content-hover-content a {
+	color: #fff;
+	text-decoration: none;	
+}
+
+.mb2-content-hover-content a:hover,
+.mb2-content-hover-content a:focus {
+	text-decoration: none;	
+	color: #fff;
+}
+
+.mb2-content-hover-content-inner {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+
+
+
+
+/* Thumbnail links */
+
+.mb2-content-img-links a {
+	display: inline-block;
+	width: 34px;
+	height: 34px;
+	margin: 2px;
+	text-align: center;
+	line-height: 34px;
+	text-decoration: none;
+	color: #fff;
+	opacity: 1;
+	border: solid 1px #fff;
+	font-size: 14px;
+	-webkit-transition: all .15s ease-in-out;
+  	-moz-transition: all .15s ease-in-out;
+  	-o-transition: all .15s ease-in-out;
+  	transition: all .15s ease-in-out;
+}
+
+.mb2-content-img-links a:hover,
+.mb2-content-img-links a:focus {
+	background-color: #329bd1;
+	border-color: #329bd1;
+	color: #fff!important;	
+}
+
+
+
+
+
+/*--------------------------------------------------------------*/
+/*	Carousel style 
+/*--------------------------------------------------------------*/
+
+/* Direct navigation */
+
+.mb2-content .lSAction > a {
+	background: 0;
+	line-height: 32px;
+	text-align: center;
+	font-size: 22px;    
+    opacity: 0;
+	color: #ff9966;
+	text-decoration: none;
+	outline: none;
+	-webkit-transition: all 0.15s linear 0s;
+    transition: all 0.15s linear 0s;
+}
+
+.mb2-content:hover .lSAction > a {
+	opacity: 1;	
+}
+
+.mb2-content .lSAction > a:hover,
+.mb2-content .lSAction > a:focus {
+	color: #ff9966;
+	text-decoration: none;	
+}
+
+.mb2-content .lSAction > .lSPrev {
+    left: 0;
+}
+.mb2-content .lSAction > .lSNext {
+    right: 0;
+}
+
+.mb2-content .lSSlideOuter.vertical .lSAction > .lSNext {
+	bottom: 0;	
+}
+
+.mb2-content .lSSlideOuter.vertical .lSAction > .lSPrev {
+	top: 0;	
+}
+
+
+
+/* Control navigation */
+
+.mb2-content .lSPager.lSpg {
+	position: relative;
+	padding-top: 30px!important;
+	margin-top: 0!important;
+}
+
+.mb2-content .lSSlideOuter .lSPager.lSpg > li a {
+	border: solid 1px transparent;
+	background-color: #ff9966;
+	-webkit-transition: all 0.15s linear 0s;
+    transition: all 0.15s linear 0s;
+	outline: none;
+}
+
+.mb2-content .lSSlideOuter .lSPager.lSpg > li:hover a {
+	background-color: #ff9966;	
+}
+
+.mb2-content .lSSlideOuter .lSPager.lSpg > li.active a  {
+	height: 12px;
+	width: 12px;
+	border-color: #ff9966;
+	background-color: transparent !important;
+}
+
+
+
+
+
+
+/*--------------------------------------------------------------*/
+/*	Other
+/*--------------------------------------------------------------*/													
+/* fixed problem with hover image in firefox */
+
+.mb2-content-img img {
+	box-shadow: #000 0em 0em 0em;
+}												
+													
+
+
+/* clear div */
+
+.mb2-content-clr {
+	*zoom: 1;
+}
+.mb2-content-clr:before,
+.mb2-content-clr:after {
+	display: table;
+	content: "";
+	line-height: 0;
+}
+.mb2-content-clr:after {
+	clear: both;
+}
+
+
+
+
+
+
+
+
+
+/*--------------------------------------------------------------*/
+/*	Layout 'desc-hove'
+/*--------------------------------------------------------------*/
+
+.mb2-content.desc-hover,
+.mb2-content.desc-hover .mb2-content-item-title,
+.mb2-content.desc-hover .mb2-content-item-meta {
+	color: #fff;	
+}
+
+.mb2-content.desc-hover .mb2-content-hover-content a {
+	opacity: .8;	
+}
+
+.mb2-content.desc-hover .mb2-content-hover-content a:hover,
+.mb2-content.desc-hover .mb2-content-hover-content a:focus {
+	opacity: 1;
+}
+
+.mb2-content.desc-hover .mb2-content-item-meta > span {
+	margin: 0 3px;	
+}
+
+.mb2-content.desc-hover .mb2-content-item-title {}
+
+.mb2-content.desc-hover .mb2-content-item-title a {
+	opacity: 1;	
+}
+
+.mb2-content.desc-hover .mb2-content-img-links {
+	margin-top: 20px;	
+}
+
+
+
+						
+						
+						
+	
+
+
+/*--------------------------------------------------------------*/
+/*	Resposive style
+/*--------------------------------------------------------------*/	
+@media only screen and (max-width:768px){	
+	
+	
+	/* Multicolumns layout (more than 2 columns) */
+	
+	.mb2-content-responsive.mb2-content-multicol .mb2-content-item {
+		width: 50%!important;
+		display: inline-block;	
+	}	
+	
+	
+	.mb2-content-responsive .mb2-content-item-media,
+	.mb2-content-responsive .mb2-content-item-deatils {
+		width: 100% !important;
+		float: none !important;	
+	}
+	
+	.mb2-content-responsive .mb2-content-item-deatils-inner {
+		padding-left: 0!important;
+		padding-right: 0!important;	
+	}
+	
+	.mb2-content-responsive .mb2-content-item-media {
+		margin-bottom: 20px;	
+	}
+	
+		
+	
+}
+
+
+
+
+@media only screen and (max-width:480px){	
+
+	
+	.mb2-content-responsive.mb2-content-multicol .mb2-content-list,
+	.mb2-content-responsive.mb2-content-multicol .mb2-content-item-inner,
+	.mb2-content-responsive.mb2-content-no-multicol .mb2-content-list,
+	.mb2-content-responsive.mb2-content-no-multicol .mb2-content-item-inner {
+		margin-left:0!important;
+		margin-right:0!important;	
+	}
+	
+	.mb2-content-responsive.mb2-content-multicol .mb2-content-item,
+	.mb2-content-responsive.mb2-content-no-multicol .mb2-content-item {
+		width: 100% !important;	
+	}
+	
+	
+	
+
+
+}
