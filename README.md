@@ -1,4 +1,4 @@
-# Mb2-Content
+# Mb2 Content Joomla Module
 Mb2 Conten is Joomla 3+ module to display Joomla and K2 articles in list or carousel.
 # Main Features
 <ul>
