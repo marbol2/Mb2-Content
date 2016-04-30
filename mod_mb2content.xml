@@ -7,7 +7,7 @@
 <license>GNU/GPL (http://www.gnu.org/copyleft/gpl.html)</license>
 <authorEmail>mariuszboloz@gmail.com</authorEmail>
 <authorUrl>http://mb2extensions.com</authorUrl>
-<version>1.5.0</version>
+<version>1.5.1</version>
 <description>MOD_MB2CONTENT_DESCRIPTION</description>
 <files>
 	<filename module="mod_mb2content">mod_mb2content.php</filename>
@@ -259,6 +259,7 @@
 			<option value="1">JYES</option>
 			<option value="0">JNO</option>
 		</field>
+		<field name="imgquality" type="number" default="75" min="10" max="100" label="MOD_MB2CONTENT_THUMB_QUALITY" description="" />		
 		<field name="thumb_width" type="number" default="480" min="50" label="MOD_MB2CONTENT_THUMB_WIDTH" description="" />
 		<field name="thumb_height" type="number" default="380" min="50" label="MOD_MB2CONTENT_THUMB_HEIGHT" description="" />		
 		<field name="itemImgSize" type="list" default="Medium" label="MOD_MB2CONTENT_K2_THUMB_SIZE" description="">

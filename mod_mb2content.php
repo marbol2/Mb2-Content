@@ -1,7 +1,7 @@
 <?php 
 /**
  * @package		Mb2 Content
- * @version		1.5.0
+ * @version		1.5.1
  * @author		Mariusz Boloz (http://mb2extensions.com)
  * @copyright	Copyright (C) 2013 - 2016 Mariusz Boloz (http://mb2extensions.com). All rights reserved
  * @license		GNU/GPL (http://www.gnu.org/copyleft/gpl.html)

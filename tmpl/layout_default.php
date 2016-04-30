@@ -1,7 +1,7 @@
 <?php
 /**
  * @package		Mb2 Content
- * @version		1.5.0
+ * @version		1.5.1
  * @author		Mariusz Boloz (http://mb2extensions.com)
  * @copyright	Copyright (C) 2013 - 2016 Mariusz Boloz (http://mb2extensions.com). All rights reserved
  * @license		GNU/GPL (http://www.gnu.org/copyleft/gpl.html)
@@ -28,8 +28,8 @@ if ($isimage && $layout !='only-desc') : ?>
 		<div class="mb2-content-item-media-inner mb2-content-hover-container mb2-content-clr">
       	<?php
 			$alttext =  $is_k2 ? $item->title : $item->image_alt;
-			$gid = 'mb2content'.$module->id;
-			$thumbnail_url = modMb2contentHelper::cropImage($item->image, $params);
+			$gid = 'mb2content' . $module->id;
+			$thumbnail_url = modMb2contentHelper::cropImage($item->image, $params, $params->get('imgquality', 75), array('pref'=>$module->id . '_' . $item->id));
 			$lcls = modMb2contentHelper::lightboxAttribs($params,array('type'=>1,'gid'=>$gid));
 			$ldata = modMb2contentHelper::lightboxAttribs($params,array('type'=>2,'gid'=>$gid));
 			$item_links = (($params->get('image_links', 1) == 1 && $params->get('thumb_link', 0) > 0) || $params->get('thumb_link', 0) == 3);

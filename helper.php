@@ -1,7 +1,7 @@
 <?php
 /**
  * @package		Mb2 Content
- * @version		1.5.0
+ * @version		1.5.1
  * @author		Mariusz Boloz (http://mb2extensions.com)
  * @copyright	Copyright (C) 2013 - 2016 Mariusz Boloz (http://mb2extensions.com). All rights reserved
  * @license		GNU/GPL (http://www.gnu.org/copyleft/gpl.html)
@@ -1096,6 +1096,10 @@ abstract class modMb2contentHelper{
 		
 		$output = '';	
 		
+		if (!defined('DS'))
+		{
+			define ('DS', DIRECTORY_SEPARATOR);	
+		}
 		
 		// Basic variables			
 		$cropping = $params->get('resize', 1);
@@ -1104,7 +1108,7 @@ abstract class modMb2contentHelper{
 				
 		
 		// Make sure that cropping image param is enabled, image url filed is not empty and image file exists
-		$cropimg = ($cropping && $url && file_exists(JPATH_SITE . '/' . $url));
+		$cropimg = ($cropping && $url && file_exists(JPATH_SITE . DS . $url));
 		
 		
 		if($cropimg){			
@@ -1131,7 +1135,7 @@ abstract class modMb2contentHelper{
 			
 			if(!class_exists('resize'))
 			{
-				require_once JPATH_SITE . '/modules/mod_mb2content/libs/image_resize_class.php';
+				require_once JPATH_SITE . DS . 'modules' . DS . 'mod_mb2content' . DS . 'libs' . DS . 'image_resize_class.php';
 			} 			
 			
 			$resizeObj = new resize($url);
@@ -1141,23 +1145,29 @@ abstract class modMb2contentHelper{
 			
 			
 			//check if thumbnail folder exist. If not creat it
-			if(!is_dir(JPATH_CACHE . '/mb2content')){
+			if(!is_dir(JPATH_CACHE . DS . 'mb2content')){
 				jimport('joomla.filesystem.folder');
-				JFolder::create( JPATH_CACHE . '/mb2content');
+				JFolder::create( JPATH_CACHE . DS . 'mb2content');
 			}	
 			
 			
 			// Get image name
-			$thumbname = modMb2contentHelper::imageName($url);	
+			$pref = (isset($attribs['pref']) && $attribs['pref']!='') ? $attribs['pref'] . '_' : '';
+			$thumbname = $pref . modMb2contentHelper::imageName($url);	
 				
 			
 				
 			// *** 3) Save image
-			$resizeObj -> saveImage(JPATH_CACHE . '/mb2content/' . $thumbname . '_' . $imgw . 'x' . $imgh . $format, $quality);							
+			$isthumb = JPATH_CACHE . DS . 'mb2content' . DS . $thumbname . '_' . $imgw . '_' . $imgh . $format;
+			
+			if (!file_exists($isthumb))
+			{
+				$resizeObj -> saveImage($isthumb, $quality);	
+			}
 			
 			
 			//define thumbnail url
-			$output .= JURI::base(true) . '/cache/mb2content/' . $thumbname . '_' . $imgw.'x' . $imgh . $format;	
+			$output .= JURI::base(true) . '/cache/mb2content/' . $thumbname . '_' . $imgw.'_' . $imgh . $format;	
 		
 		
 		}
