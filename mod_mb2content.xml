@@ -408,4 +408,7 @@
 	</fieldset>
 		</fields>
 	</config>
+	<updateservers>
+		<server type="extension" priority="1" name="Mb2 Content Updates">http://marbol2.com/xmlupd/xml/mb2content.xml</server>
+	</updateservers>
 </extension>
