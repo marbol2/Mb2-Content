@@ -1,8 +1,0 @@
-/**
- * @package		Mb2 Content
- * @version		1.4.0
- * @author		Mariusz Boloz (http://marbol2.com)
- * @copyright	Copyright (C) 2013 - 2015 Mariusz Boloz (http://marbol2.com). All rights reserved
- * @license		GNU/GPL (http://www.gnu.org/copyleft/gpl.html)
-**/
-!function(t){t(window).load(function(){t(".mb2-content-carousel").each(function(){{var n=t(this),a=n.data("itemmax"),i=n.data("scroll"),o=n.data("animation"),e=n.data("duration"),r=n.data("touch"),c=n.data("play"),m=n.data("id");n.data("margin")}if(1==r)var s=!0,d=!0;else var s=!1,d=!1;is_newplay=1==c?!0:!1,t(this).carouFredSel({responsive:!0,auto:{play:is_newplay,timeoutDuration:e},scroll:o?{fx:"crossfade"}:i,prev:"#mb2-content-prev-"+m,next:"#mb2-content-next-"+m,pagination:"#mb2-content-pager-"+m,items:{width:400,height:"auto",visible:{min:1,max:a}},swipe:{onTouch:s,onMouse:d}})})})}(jQuery),jQuery(document).ready(function(t){t(".mb2-content").each(function(){var n=t(this),a=n.find(".mb2-content-img a"),i=n.find(".mb2-content-img"),o=n.data("heffect");a.hasClass("mb2-content-nivo-link")&&t(".mb2-content-nivo-link").nivoLightbox(),1==o?i.hover(function(){t(this).children(".mark").stop().animate({opacity:1},300)},function(){t(this).children(".mark").stop().animate({opacity:0},300)}):2==o&&i.hover(function(){var n=t(this).find(".mark"),a=n.children(".mark-inner");t(this).children(".mark").stop().animate({bottom:0},300),a.stop().animate({top:"50%"},300)},function(){var n=t(this).find(".mark"),a=n.children(".mark-inner");t(this).children(".mark").stop().animate({bottom:"-1000px"},300),a.stop().animate({top:"-1200px"},300)})})});
