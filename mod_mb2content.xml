@@ -7,7 +7,7 @@
 <license>GNU/GPL (http://www.gnu.org/copyleft/gpl.html)</license>
 <authorEmail>mariuszboloz@gmail.com</authorEmail>
 <authorUrl>http://mb2extensions.com</authorUrl>
-<version>1.5.1</version>
+<version>1.6.0</version>
 <description>MOD_MB2CONTENT_DESCRIPTION</description>
 <files>
 	<filename module="mod_mb2content">mod_mb2content.php</filename>
@@ -115,6 +115,25 @@
        	<option value="1">JYES</option>
 		<option value="0">JNO</option>
 	</field>
+	
+	
+	<field type="spacer" hr="true" />
+	
+	<field name="beforetext" 
+		type="textarea"
+		default=""
+		filter="raw" 
+		label="MOD_MB2CONTENT_BEFORE_TEXT" 
+	/>
+			
+	<field name="aftertext" 
+		type="textarea"
+		default=""
+		filter="raw" 
+		label="MOD_MB2CONTENT_AFTER_TEXT" 
+	/>
+	
+	
 	
 	</fieldset>
 	

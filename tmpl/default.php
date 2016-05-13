@@ -1,7 +1,7 @@
 <?php
 /**
  * @package		Mb2 Content
- * @version		1.5.1
+ * @version		1.6.0
  * @author		Mariusz Boloz (http://mb2extensions.com)
  * @copyright	Copyright (C) 2013 - 2016 Mariusz Boloz (http://mb2extensions.com). All rights reserved
  * @license		GNU/GPL (http://www.gnu.org/copyleft/gpl.html)
@@ -23,6 +23,11 @@ if($count>0)
 {
 ?>
 <div class="mb2-content mb2-content-<?php echo $module->id . ' ' . $params->get('item_layout', 'media-above') . $responsivecls . $multicolcls; ?> mb2-content-clr"<?php echo $mdata; ?>>	
+	<?php if ($params->get('beforetext','') !='') : ?>
+    	<div class="mb2-content-beforetext">
+			<?php echo JHtml::_('content.prepare', $params->get('beforetext','')); ?>
+        </div><!-- //end .mb2-content-beforetext -->
+    <?php endif; ?>
 	<?php echo '<' . $listtag . ' class="mb2-content-list mb2-content-clr' . $carousel_cls . '"' . $carousel_data . '>'?>
 		<?php 
 		$i=0;
@@ -51,6 +56,11 @@ if($count>0)
 		endforeach; 
 		?>
 	<?php echo '</' . $listtag . '><!-- end .mb2-content-list -->' ?>
+    <?php if ($params->get('aftertext','') !='') : ?>
+    	<div class="mb2-content-aftertext">
+			<?php echo JHtml::_('content.prepare', $params->get('aftertext','')); ?>
+        </div><!-- //end .mb2-content-aftertext -->
+    <?php endif; ?>
 </div><!-- end .mb2-content-wrap -->
 <?php
 } // End if count list
