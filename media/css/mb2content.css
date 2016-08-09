@@ -1,6 +1,6 @@
 /**
  * @package		Mb2 Content
- * @version		1.6.1
+ * @version		1.6.2
  * @author		Mariusz Boloz (http://mb2extensions.com)
  * @copyright	Copyright (C) 2013 - 2016 Mariusz Boloz (http://mb2extensions.com). All rights reserved
  * @license		GNU/GPL (http://www.gnu.org/copyleft/gpl.html)
@@ -99,6 +99,24 @@
 /* Media-right layout */
 .mb2-content-media-right .mb2-content-item-deatils-inner {
 	padding-right:30px;	
+}
+
+
+
+@media only screen and (max-width:480px){	
+
+	.mb2-content-item-media,
+	.mb2-content-item-deatils {
+		float: none!important;
+		width: 100% !important;
+			
+	}	
+	
+	.mb2-content-media-left .mb2-content-item-deatils-inner,
+	.mb2-content-media-right .mb2-content-item-deatils-inner  {
+		padding: 30px 0 0 0 !important;	
+	}
+
 }
 
 
@@ -488,6 +506,9 @@
 	.mb2-content-responsive.mb2-content-no-multicol .mb2-content-item {
 		width: 100% !important;	
 	}
+	
+	
+	
 	
 	
 	
