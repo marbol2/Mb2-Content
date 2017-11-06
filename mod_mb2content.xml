@@ -7,7 +7,7 @@
 <license>GNU/GPL (http://www.gnu.org/copyleft/gpl.html)</license>
 <authorEmail>mariuszboloz@gmail.com</authorEmail>
 <authorUrl>http://mb2extensions.com</authorUrl>
-<version>1.6.2</version>
+<version>1.6.3</version>
 <description>MOD_MB2CONTENT_DESCRIPTION</description>
 <files>
 	<filename module="mod_mb2content">mod_mb2content.php</filename>
@@ -148,7 +148,8 @@
 			<option value="mb2-content-media-left">image_desc.jpg</option>
 			<option value="mb2-content-media-right">desc_image.jpg</option>
 			<option value="media-above">image_desc_below.jpg</option>
-			<option value="desc-hover">image_desc_hover.jpg</option>		
+			<option value="desc-hover">image_desc_hover.jpg</option>
+			<!--<option value="news-bar">image_news_bar.jpg</option>-->		
 		</field>					
 		<field name="cols" type="list" default="4" label="MOD_MB2CONTENT_COLUMNS" description="">
 			<option value="1">1</option>

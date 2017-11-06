@@ -1,9 +1,9 @@
 <?php
 /**
  * @package		Mb2 Content
- * @version		1.6.1
+ * @version		1.6.3
  * @author		Mariusz Boloz (http://mb2extensions.com)
- * @copyright	Copyright (C) 2013 - 2016 Mariusz Boloz (http://mb2extensions.com). All rights reserved
+ * @copyright	Copyright (C) 2013 - 2017 Mariusz Boloz (http://mb2extensions.com). All rights reserved
  * @license		GNU/GPL (http://www.gnu.org/copyleft/gpl.html)
 **/
 
@@ -41,7 +41,7 @@ if($count>0)
 			?>
 			<?php echo '<' . $litag . ' class="mb2-content-item mb2-content-item-col-' . $params->get('cols', 4) . $last_item . '">'; ?>
 				<div class="mb2-content-item-inner mb2-content-clr">
-					<?php if ($layout == 'desc-hover') : ?>
+					<?php if ($layout === 'desc-hover' || $layout === 'news-bar') : ?>
 						<?php require JModuleHelper::getLayoutPath('mod_mb2content', $params->get('layout', 'layout_hover')); ?>
 					<?php else : ?>
 						<?php require JModuleHelper::getLayoutPath('mod_mb2content', $params->get('layout', 'layout_default')); ?>

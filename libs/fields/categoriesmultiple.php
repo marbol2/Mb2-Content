@@ -1,9 +1,9 @@
 <?php
 /**
  * @package		Mb2 Content
- * @version		1.6.1
+ * @version		1.6.3
  * @author		Mariusz Boloz (http://mb2extensions.com)
- * @copyright	Copyright (C) 2013 - 2016 Mariusz Boloz (http://mb2extensions.com). All rights reserved
+ * @copyright	Copyright (C) 2013 - 2017 Mariusz Boloz (http://mb2extensions.com). All rights reserved
  * @license		GNU/GPL (http://www.gnu.org/copyleft/gpl.html)
 **/
 
@@ -18,9 +18,79 @@ defined('_JEXEC') or die ;
 if (file_exists(JPATH_SITE . '/components/com_k2/k2.php') && JComponentHelper::isEnabled('com_k2', true))
 {
 	
+if (K2_JVERSION == '15')
+{
+    jimport('joomla.html.parameter.element');
+    class K2Element extends JElement
+    {
+    }
+}
+else
+{
+	jimport('joomla.form.formfield');
+	if(version_compare(JVERSION, '3.5.0', 'ge'))
+	{
+		class K2Element extends JFormField
+		{
+		    function getInput()
+		    {
+			    if (method_exists($this,'fetchElement')) // BC
+			    {
+				   return $this->fetchElement($this->name, $this->value, $this->element, $this->options['control']);
+			    }
+		        return $this->fetchElementValue($this->name, $this->value, $this->element, $this->options['control']);
+		    }
+		    function getLabel()
+		    {
+		        if (method_exists($this, 'fetchTooltip')) // BC
+		        {
+		        	return $this->fetchTooltip($this->element['label'], $this->description, $this->element, $this->options['control'], $this->element['name'] = '');
+		        }
+		        if (method_exists($this, 'fetchElementName'))
+		        {
+		        	return $this->fetchElementName($this->element['label'], $this->description, $this->element, $this->options['control'], $this->element['name'] = '');
+		        }
+		        return parent::getLabel();
+		    }
+		    function render($layoutId, $data = array())
+		    {
+		        return $this->getInput();
+		    }
+		}
+	}
+	else
+	{
+		class K2Element extends JFormField
+		{
+		    function getInput()
+		    {
+		        if (method_exists($this, 'fetchElement')) // BC
+		        {
+			        return $this->fetchElement($this->name, $this->value, $this->element, $this->options['control']);
+			    }
+		        return $this->fetchElementValue($this->name, $this->value, $this->element, $this->options['control']);
+		    }
+		    function getLabel()
+		    {
+		        if (method_exists($this, 'fetchTooltip')) // BC
+		        {
+			        return $this->fetchTooltip($this->element['label'], $this->description, $this->element, $this->options['control'], $this->element['name'] = '');
+			    }
+		        if (method_exists($this, 'fetchElementName'))
+		        {
+		            return $this->fetchElementName($this->element['label'], $this->description, $this->element, $this->options['control'], $this->element['name'] = '');
+		        }
+		        return parent::getLabel();
+		    }
+		    function render()
+		    {
+		        return $this->getInput();
+		    }
+		}
+	}
+}	
 	
-	
-	require_once (JPATH_ADMINISTRATOR . '/components/com_k2/elements/base.php');
+	//require_once (JPATH_ADMINISTRATOR . '/components/com_k2/elements/base.php');
 	
 	class K2ElementCategoriesMultiple extends K2Element
 	{
@@ -32,15 +102,15 @@ if (file_exists(JPATH_SITE . '/components/com_k2/k2.php') && JComponentHelper::i
 			
 			$params = JComponentHelper::getParams('com_k2');
 			$document = JFactory::getDocument();
-			if (version_compare(JVERSION, '1.6.0', 'ge'))
-			{
-				JHtml::_('behavior.framework');
-			}
-			else
-			{
-				JHTML::_('behavior.mootools');
-			}
-			K2HelperHTML::loadjQuery();
+			//if (version_compare(JVERSION, '1.6.0', 'ge'))
+//			{
+//				JHtml::_('behavior.framework');
+//			}
+//			else
+//			{
+//				JHTML::_('behavior.mootools');
+//			}
+			//K2HelperHTML::loadjQuery();
 	
 			$db = JFactory::getDBO();
 			$query = 'SELECT m.* FROM #__k2_categories m WHERE trash = 0 ORDER BY parent, ordering';

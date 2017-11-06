@@ -1,9 +1,9 @@
 <?php
 /**
  * @package		Mb2 Content
- * @version		1.6.1
+ * @version		1.6.3
  * @author		Mariusz Boloz (http://mb2extensions.com)
- * @copyright	Copyright (C) 2013 - 2016 Mariusz Boloz (http://mb2extensions.com). All rights reserved
+ * @copyright	Copyright (C) 2013 - 2017 Mariusz Boloz (http://mb2extensions.com). All rights reserved
  * @license		GNU/GPL (http://www.gnu.org/copyleft/gpl.html)
 **/
 
@@ -14,6 +14,7 @@ JHtml::addIncludePath(JPATH_SITE . '/modules/mod_mb2content/helpers');
 $count = count($list);
 $isimage = (isset($item->image)&& $item->image !='');
 $layout = $params->get('item_layout', 'media-above');
+$newsbar_bg = '';
 
 
 // Define item meta
@@ -32,8 +33,9 @@ if ($isimage) : ?>
 			$item_links = (($params->get('image_links', 1) == 1 && $params->get('thumb_link', 0) > 0) || $params->get('thumb_link', 0) == 3);
 			$item_no_links = ($params->get('image_links', 1) == 0 && ($params->get('thumb_link', 0) == 1 || $params->get('thumb_link', 0) == 2));
 			$item_link = $params->get('thumb_link', 0) == 2 ? $item->link : $item->image;
+			$newsbar_bg = $layout === 'news-bar' ? ' style="background-image:url(\'' . $thumbnail_url . '\');"' : '';
 		?>
-    		<div class="mb2-content-hover-bg<?php echo $hover_bg_cls; ?>">
+    		<div class="mb2-content-hover-bg<?php echo $hover_bg_cls; ?>"<?php echo $newsbar_bg ; ?>>
              	<div class="mb2-content-hover-content">
               		<div class="mb2-content-hover-content-inner">
 						<?php if ($params->get('title', 1) == 1) :			
@@ -70,7 +72,9 @@ if ($isimage) : ?>
             		</div><!-- end .mb2-content-hover-content-inner --> 
      			</div><!-- end .mb2-content-hover-content --> 
      		</div><!-- end .mb2-content-hover-bg --> 
-        	<img src="<?php echo $thumbnail_url; ?>" alt="<?php echo $alttext; ?>" />
+            <?php if ($layout !== 'news-bar') : ?>
+        		<img src="<?php echo $thumbnail_url; ?>" alt="<?php echo $alttext; ?>" />
+            <?php endif; ?>
    		</div><!-- end .mb2-content-item-media-inner -->            
 	</div><!-- end .mb2-content-item-media -->              
 <?php endif; ?>

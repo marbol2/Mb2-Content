@@ -1,9 +1,9 @@
 <?php
 /**
  * @package		Mb2 Content
- * @version		1.6.1
+ * @version		1.6.3
  * @author		Mariusz Boloz (http://mb2extensions.com)
- * @copyright	Copyright (C) 2013 - 2016 Mariusz Boloz (http://mb2extensions.com). All rights reserved
+ * @copyright	Copyright (C) 2013 - 2017 Mariusz Boloz (http://mb2extensions.com). All rights reserved
  * @license		GNU/GPL (http://www.gnu.org/copyleft/gpl.html)
 **/
 
@@ -768,7 +768,8 @@ abstract class modMb2contentHelper{
 		if ($params->get('img_hover_bg', '') !='')
 		{
 						
-			$output .= $pref . ' .mb2-content-hover-bg';
+			$output .= $pref . ' .mb2-content-hover-bg,';
+			$output .= $pref . '.news-bar .mb2-content-hover-content';			
 			$output .= '{';
 			$output .= 'background-color:' . $params->get('img_hover_bg', '') . ';';
 			$output .= '}';			
