@@ -3,11 +3,11 @@
 <name>mod_mb2content</name>
 <author>Mariusz Boloz</author>
 <creationDate>April 2013</creationDate>
-<copyright>Copyright (C) 2013 - 2016 Mariusz Boloz (http://mb2extensions.com) All rights reserved.</copyright>
+<copyright>Copyright (C) 2013 - 2018 Mariusz Boloz (http://mb2extensions.com) All rights reserved.</copyright>
 <license>GNU/GPL (http://www.gnu.org/copyleft/gpl.html)</license>
 <authorEmail>mariuszboloz@gmail.com</authorEmail>
 <authorUrl>http://mb2extensions.com</authorUrl>
-<version>1.6.3</version>
+<version>1.6.4</version>
 <description>MOD_MB2CONTENT_DESCRIPTION</description>
 <files>
 	<filename module="mod_mb2content">mod_mb2content.php</filename>

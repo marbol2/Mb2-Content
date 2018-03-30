@@ -1,7 +1,7 @@
 <?php
 /**
  * @package		Mb2 Content
- * @version		1.6.3
+ * @version		1.6.4
  * @author		Mariusz Boloz (http://mb2extensions.com)
  * @copyright	Copyright (C) 2013 - 2017 Mariusz Boloz (http://mb2extensions.com). All rights reserved
  * @license		GNU/GPL (http://www.gnu.org/copyleft/gpl.html)
@@ -18,12 +18,10 @@ defined('_JEXEC') or die ;
 if (file_exists(JPATH_SITE . '/components/com_k2/k2.php') && JComponentHelper::isEnabled('com_k2', true))
 {
 	
+	
 if (K2_JVERSION == '15')
 {
-    jimport('joomla.html.parameter.element');
-    class K2Element extends JElement
-    {
-    }
+    
 }
 else
 {
@@ -144,7 +142,7 @@ else
 			$doc = JFactory::getDocument();
 			if (K2_JVERSION != '15')
 			{
-				$js = "
+				$js = "var \$K2 = jQuery.noConflict();
 				\$K2(document).ready(function(){
 					
 					\$K2('#jform_params_catfilter0').click(function(){
@@ -182,7 +180,8 @@ else
 			}
 			else
 			{
-				$js = "
+				$js = "var \$K2 = jQuery.noConflict();
+				\var $K2 = jQuery.noConflict();
 				\$K2(document).ready(function(){
 					
 					\$K2('#paramscatfilter0').click(function(){
